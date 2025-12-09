@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Страница не найдена - КФ "АҚ БЕРЕН"</title>
+    <meta name="description" content="Ошибка 404. Страница не найдена.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logo/favicon.ico" type="image/x-icon">
+</head>
+<body>
+    <div class="menu-overlay"></div>
+
+    <header class="header">
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <img src="assets/logo/logo-placeholder.svg" alt="Логотип АҚ БЕРЕН" class="logo-img">
+                <span>АҚ БЕРЕН</span>
+            </a>
+            <nav class="nav" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="index.html" class="nav-link">Главная</a></li>
+                    <li><a href="about.html" class="nav-link">О компании</a></li>
+                    <li><a href="services.html" class="nav-link">Услуги</a></li>
+                    <li><a href="partners.html" class="nav-link">Партнеры</a></li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle">Оснащение</a>
+                        <div class="dropdown-menu">
+                            <a href="machines.html" class="dropdown-item">
+                                <span class="icon"></span> Техника
+                            </a>
+                            <a href="equipment-3d.html" class="dropdown-item">
+                                <span class="icon"></span> Экипировка 3D
+                            </a>
+                        </div>
+                    </li>
+                    <li><a href="team.html" class="nav-link">Команда</a></li>
+                    <li><a href="gallery.html" class="nav-link">Галерея</a></li>
+                    <li><a href="contact.html" class="nav-link">Контакты</a></li>
+                </ul>
+            </nav>
+            <button class="burger" id="burger-menu" aria-label="Открыть меню">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <section class="section error-section">
+            <div class="container text-center">
+                <h1 class="error-code">404</h1>
+                <h2 class="section-title">Страница не найдена</h2>
+                <p class="error-desc">
+                    Похоже, вы заблудились. Страница, которую вы ищете, не существует или была перемещена.
+                </p>
+                <div class="section-margin-top-sm">
+                    <a href="index.html" class="btn btn-gradient">Вернуться на Главную</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column footer-logo">
+                    <a href="index.html" class="logo">
+                        <img src="assets/logo/logo-placeholder.svg" alt="Логотип АҚ БЕРЕН" class="logo-img">
+                        <span>АҚ БЕРЕН</span>
+                    </a>
+                    <p>КФ "АҚ БЕРЕН" TOO "РЦШ "ПВАСС".</p>
+                    <p class="slogan">"НИКТО КРОМЕ НАС!"</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Навигация</h4>
+                    <ul class="footer-nav">
+                        <li><a href="about.html">О компании</a></li>
+                        <li><a href="services.html">Услуги</a></li>
+                        <li><a href="partners.html">Партнеры</a></li>
+                        <li><a href="machines.html">Оснащение</a></li>
+                        <li><a href="team.html">Команда</a></li>
+                        <li><a href="gallery.html">Галерея</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Контакты</h4>
+                    <p>Email: <a href="mailto:kf.akberen@mail.ru">kf.akberen@mail.ru</a></p>
+                    <p>Телефон: <a href="tel:+77242401701">+7 (7242) 401-701</a></p>
+                    <p>г Кызылорда, Берке хан 46</p>
+                </div>
+                <div class="footer-column">
+                    <h4>Соцсети</h4>
+                    <div class="social-links-footer">
+                        <a href="https://www.facebook.com/profile.php?id=100023423955883" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/profsoyuz_kzl?igsh=MXJhZHZzcmk2M3lsdA%3D%3D" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> КФ "АҚ БЕРЕН". Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <button id="scrollTopBtn" title="Наверх">↑</button>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
