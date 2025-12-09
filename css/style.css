@@ -866,6 +866,10 @@ main .section:first-child { padding-top: 2rem; }
     html { font-size: 13px; }
     .container { padding: 0 1rem; }
     .section { padding: 2rem 0; }
+    h1 { font-size: 2.5rem; } /* Уменьшение H1 для 768px */
+    h2 { font-size: 1.8rem; } /* Уменьшение H2 для 768px */
+    .hero-title { font-size: 2.8rem; } /* Уменьшение главного заголовка */
+
     .columns-3, .columns-2 { grid-template-columns: 1fr; gap: 1.5rem; }
     .columns-4, .team-grid-simple, .partners-grid, .equipment-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
@@ -898,4 +902,20 @@ main .section:first-child { padding-top: 2rem; }
 
     .team-list-mobile .card-team { display: flex; flex-direction: row; align-items: center; text-align: left; padding: 10px; }
     .team-list-mobile .card-team-img { width: 80px; height: 80px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
+}
+
+/* === НОВЫЙ БРЕЙКПОИНТ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ (max-width: 500px) === */
+@media (max-width: 500px) {
+    .hero-title { font-size: 2.2rem; } /* Дополнительное уменьшение главного заголовка */
+    .hero-subtitle { font-size: 1rem; }
+    .social-links-hero .slogan { font-size: 1rem !important; }
+
+    /* Все сетки принудительно в одну колонку на узких экранах */
+    .columns-4, .team-grid-simple, .partners-grid, .equipment-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    /* Футер в одну колонку */
+    .footer-content { grid-template-columns: 1fr; }
 }
