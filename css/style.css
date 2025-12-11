@@ -846,13 +846,16 @@ main .section:first-child { padding-top: 2rem; }
     .fleet-featured, .contact-grid, .office-map-card { grid-template-columns: 1fr; }
     .fleet-featured-img { order: -1; }
 
-    /* Мобильный дропдаун по клику */
+    /* --- ИСПРАВЛЕНИЕ: Мобильный дропдаун по клику --- */
     .dropdown { display: block; width: 100%; text-align: center; }
     .dropdown-toggle { justify-content: center; padding: 0.5rem 0; font-size: 1.1rem; }
     .dropdown-menu {
-        position: static; opacity: 1; visibility: visible;
-        transform: none; background: transparent; border: none;
+        position: static;
+        /* Убираем конфликтующие стили, оставляя только те, что модифицируют меню */
+        /* opacity: 1; visibility: visible; transform: none; */
+        background: transparent; border: none;
         box-shadow: none; display: none; padding-left: 0;
+        min-width: unset; /* Снимаем ограничение минимальной ширины */
     }
     .dropdown.active .dropdown-menu { display: block; }
     .dropdown-item { padding: 10px; font-size: 1rem; }
@@ -866,11 +869,14 @@ main .section:first-child { padding-top: 2rem; }
     html { font-size: 13px; }
     .container { padding: 0 1rem; }
     .section { padding: 2rem 0; }
-    h1 { font-size: 2.5rem; } /* Уменьшение H1 для 768px */
-    h2 { font-size: 1.8rem; } /* Уменьшение H2 для 768px */
-    .hero-title { font-size: 2.8rem; } /* Уменьшение главного заголовка */
+
+    /* Агрессивное уменьшение шрифтов для читаемости на планшетах */
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+    .hero-title { font-size: 2.8rem; }
 
     .columns-3, .columns-2 { grid-template-columns: 1fr; gap: 1.5rem; }
+    /* Оставляем 2 колонки для плотных сеток на 768px */
     .columns-4, .team-grid-simple, .partners-grid, .equipment-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
 
     /* Адаптация карточек техники */
@@ -904,18 +910,110 @@ main .section:first-child { padding-top: 2rem; }
     .team-list-mobile .card-team-img { width: 80px; height: 80px; border-radius: 50%; margin-right: 15px; flex-shrink: 0; }
 }
 
-/* === НОВЫЙ БРЕЙКПОИНТ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ (max-width: 500px) === */
+/* === НОВЫЙ АГРЕССИВНЫЙ БРЕЙКПОИНТ ДЛЯ ОЧЕНЬ МАЛЕНЬКИХ ТЕЛЕФОНОВ (max-width: 500px) === */
 @media (max-width: 500px) {
-    .hero-title { font-size: 2.2rem; } /* Дополнительное уменьшение главного заголовка */
+    /* Дополнительное уменьшение шрифтов */
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.6rem; }
+    .hero-title { font-size: 2.2rem; }
     .hero-subtitle { font-size: 1rem; }
-    .social-links-hero .slogan { font-size: 1rem !important; }
 
-    /* Все сетки принудительно в одну колонку на узких экранах */
-    .columns-4, .team-grid-simple, .partners-grid, .equipment-grid {
+    .logo { font-size: 1rem; }
+    .logo-img { height: 30px; width: 30px; }
+
+    /* ВСЕ сетки принудительно в одну колонку */
+    .columns-4, .team-grid-simple, .partners-grid, .equipment-grid,
+    .columns-3, .columns-2 {
         grid-template-columns: 1fr;
         gap: 1rem;
     }
 
-    /* Футер в одну колонку */
+    /* Адаптация карточек техники в одну колонку */
+    .fleet-featured { padding: 1rem; }
+    .fleet-featured-img { height: 180px; }
+
+    /* Футер в одну колонку и уменьшенные отступы */
     .footer-content { grid-template-columns: 1fr; }
+    .footer { padding: 2rem 0 1rem; }
+
+    /* Модальные окна лучше смотрятся на весь экран */
+    .modal-window { max-width: 100%; margin: 0 10px; }
+    .modal-body { padding: 1rem; }
+}
+/* ==========================================================================
+   9. ДОПОЛНИТЕЛЬНЫЕ МОБИЛЬНЫЕ УЛУЧШЕНИЯ (FIXES)
+   ========================================================================== */
+
+/* 1. Исправление фона на мобильных (особенно iPhone) */
+/* background-attachment: fixed часто вызывает тормоза или визуальные баги на телефонах */
+@media (max-width: 768px) {
+    body {
+        background-attachment: scroll; /* Фон будет прокручиваться вместе с сайтом */
+        background-position: center top;
+        /* Если хотите, чтобы фон оставался темным/читаемым */
+        background-size: cover;
+    }
+}
+
+/* 2. Убираем "синюю подсветку" при клике на Android/iOS */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 3. Поддержка "челок" и вырезов на современных экранах */
+@media (max-width: 500px) {
+    .header, .footer, .modal-window {
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
+    }
+
+    /* 4. Увеличение размера шрифта для лучшей читаемости */
+    /* В вашем коде стоит 13px, что может быть мелко для текста статей */
+    html {
+        font-size: 14px;
+    }
+
+    /* 5. Увеличение кнопок меню для пальца */
+    .nav-link {
+        padding: 12px 0; /* Больше пространство для клика */
+        font-size: 1.2rem; /* Крупнее текст меню */
+    }
+
+    /* Исправление отступов в модальных окнах, чтобы не прилипало к краям */
+    .modal-body {
+        padding: 1rem;
+    }
+
+    /* Делаем крестик закрытия модального окна крупнее */
+    .modal-close {
+        width: 44px;
+        height: 44px;
+        top: 10px;
+        right: 10px;
+    }
+}
+/* --- Команда (Обновленный стиль для 2 колонок) --- */
+.team-grid-simple {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Принудительно 2 колонки */
+    gap: 2rem; /* Отступы между карточками */
+    margin-bottom: 3rem;
+}
+
+/* Центрируем последнюю карточку, если сотрудников нечетное количество (например, 3) */
+.team-grid-simple .card-team:last-child:nth-child(odd) {
+    grid-column: span 2;
+    max-width: 50%; /* Ограничиваем ширину, чтобы не растягивало фото */
+    margin: 0 auto; /* Центрируем */
+}
+
+/* Адаптивность для телефонов (возвращаем 1 колонку) */
+@media (max-width: 768px) {
+    .team-grid-simple {
+        grid-template-columns: 1fr; /* Одна колонка на планшетах и телефонах */
+    }
+    .team-grid-simple .card-team:last-child:nth-child(odd) {
+        grid-column: auto;
+        max-width: 100%;
+    }
 }
